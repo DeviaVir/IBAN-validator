@@ -1,0 +1,13 @@
+{
+    "require": {
+    	"silex/silex": "~1.2",
+        "jschaedl/iban": "dev-master",
+        "symfony/console": "2.5.*@dev"
+    },
+    "autoload": {
+		"psr-0": {
+			"Module": "app"
+		}
+	},
+	"preferred-install": "dist"
+}
