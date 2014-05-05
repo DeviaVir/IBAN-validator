@@ -10,13 +10,13 @@ use IBAN\Generation\IBANGeneratorNL;
 class IBAN extends Controller
 {
     /**
-     *
-     */
+    *
+    */
     public function validate($iban)
     {
-    	$ibanValidator = new IBANValidator();
-		if ($ibanValidator->validate($iban)) {
-		    echo $iban . " is valid!";
-		}
+        $ibanValidator = new IBANValidator();
+        if ($ibanValidator->validate($iban)) {
+            echo $iban . " is valid!";
+        }
     }
 }
