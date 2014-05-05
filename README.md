@@ -20,3 +20,5 @@ Sample output:
 ```
 IBANCODE is valid!
 ```
+
+When a wrong IBANCODE is given, no output is returned.
