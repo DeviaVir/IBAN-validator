@@ -1,6 +1,7 @@
 <?php
 
-namespace Module\Cli\Controller;
+namespace Module;
+
 use IBAN\Validation\IBANValidator;
 
 class IBAN
@@ -14,10 +15,11 @@ class IBAN
     {
         $ibanValidator = new IBANValidator();
         if ($ibanValidator->validate($iban)) {
-            return json_encode(['result' => true]);
+            echo json_encode(['result' => true]) . PHP_EOL;
         }
         else {
-            return json_encode(['result' => false]);
+            echo json_encode(['result' => false]) . PHP_EOL;
         }
+        return;
     }
 }

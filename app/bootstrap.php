@@ -5,9 +5,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Module\Cli\Controller;
+use Module\IBAN;
 
-require_once __DIR__ . '/../../bootstrap.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$app = new Silex\Application();
+date_default_timezone_set('UTC');
 
 $cli = new Application('Command Line Interface', '1.0');
 $cli->setCatchExceptions(true);
@@ -20,7 +23,7 @@ $cli->register('iban.validate')
     )
     ->setDescription('Validate ibans')
     ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
-        $iban = new Controller\IBAN($app);
+        $iban = new IBAN($app);
         $iban->validate($input->getArgument('iban'));
     });
 
