@@ -1,22 +1,23 @@
 <?php
 
 namespace Module\Cli\Controller;
-
 use IBAN\Validation\IBANValidator;
-use IBAN\Generation\IBANGenerator;
-use IBAN\Rule\RuleFactory;
-use IBAN\Generation\IBANGeneratorNL;
 
-class IBAN extends Controller
+class IBAN
 {
     /**
-    *
-    */
+     * Implementation of IBAN validation
+     * @param  string $iban 
+     * @return string       json
+     */
     public function validate($iban)
     {
         $ibanValidator = new IBANValidator();
         if ($ibanValidator->validate($iban)) {
-            echo $iban . " is valid!";
+            return json_encode(['result' => true]);
+        }
+        else {
+            return json_encode(['result' => false]);
         }
     }
 }
